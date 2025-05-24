@@ -78,7 +78,7 @@ function LocationsController($injector, $location, $rootScope, $scope, BibiscoPr
             status: locations[i].status,
             tags: tags,
             text: this.locationDescription(locations[i].nation,
-              locations[i].state, locations[i].city),
+                                           locations[i].state, locations[i].city, locations[i].description),
             title: self.getTitle(locations[i].location)
           });
         }
@@ -116,28 +116,13 @@ function LocationsController($injector, $location, $rootScope, $scope, BibiscoPr
     $location.path('/locations/' + id + '/default');
   };
 
-  self.locationDescription = function(nation, state, city) {
-    let useComma = false;
-    let description = '';
-    if (nation) {
-      description = description + nation;
-      useComma = true;
-    }
-    if (state) {
-      if (useComma) {
-        description = description + ', ';
-      }
-      description = description + state;
-      useComma = true;
-    }
-    if (city) {
-      if (useComma) {
-        description = description + ', ';
-      }
-      description = description + city;
-    }
-
-    return description;
+  self.locationDescription = function(nation, state, city, description) {
+    let components = [];
+    if (nation) components.push(nation);
+    if (state) components.push(state);
+    if (city) components.push(city);
+    if (description) components.push(UtilService.string.stripHtmlTags(UtilService.string.truncate(description, 200)));
+    return UtilService.array.join(components, ', ');
   };
 
   self.refreshCardGridItems = function() {

@@ -22,7 +22,7 @@ angular.
     }
   });
 
-function GroupsController($location, $rootScope, $scope, GroupService, SupporterEditionChecker) {
+function GroupsController($location, $rootScope, $scope, GroupService, SupporterEditionChecker, UtilService) {
 
   var self = this;
 
@@ -62,7 +62,8 @@ function GroupsController($location, $rootScope, $scope, GroupService, Supporter
           position: groups[i].position,
           status: groups[i].status,
           tags: [{label: '', color: groups[i].color}],
-          title: groups[i].name
+          title: groups[i].name,
+          text: UtilService.getContentText(groups[i].description, '')
         });
       }
     }

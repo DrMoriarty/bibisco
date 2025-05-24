@@ -28,7 +28,7 @@
       hastext="true"
       noimageicon="map-o"
       selectfunction="$ctrl.selectChapterInfo(id)"
-      text="jsp.chapter.thumbnail.reason.description"
+      text="{{$ctrl.chapter_reason_text}}"
       status="$ctrl.chapter.reason.status"></card>
     <card cardid="'notes'" cardtitle="common_notes_title"
       dimension="normal"
@@ -37,7 +37,7 @@
       family="chapterinfo"
       noimageicon="thumb-tack"
       selectfunction="$ctrl.selectChapterInfo(id)"
-      text="common_notes_description"></card>
+      text="{{$ctrl.chapter_notes_text}}"></card>
   </div>
 
   <!-- SCENES -->

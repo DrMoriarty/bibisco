@@ -32,7 +32,7 @@
         hastext="true"
         noimageicon="id-card-o"
         selectfunction="$ctrl.showInfoWithQuestion(id)"
-        text="jsp.character.thumbnail.personaldata.description"
+        text="{{$ctrl.personaldata_text}}"
         status="$ctrl.maincharacter.personaldata.status"></card>
       <card cardid="'physionomy'" cardtitle="common_physionomy"
         dimension="normal"
@@ -41,7 +41,7 @@
         family="maincharactersdetails"
         hastext="true"
         selectfunction="$ctrl.showInfoWithQuestion(id)"
-        text="jsp.character.thumbnail.physionomy.description"
+        text="{{$ctrl.physionomy_text}}"
         status="$ctrl.maincharacter.physionomy.status"></card>
       <card cardid="'behaviors'" cardtitle="common_behaviors"
         dimension="normal"
@@ -50,7 +50,7 @@
         hastext="true"
         noimageicon="comments-o"
         selectfunction="$ctrl.showInfoWithQuestion(id)"
-        text="jsp.character.thumbnail.behaviors.description"
+        text="{{$ctrl.behaviors_text}}"
         status="$ctrl.maincharacter.behaviors.status"></card>
       <card cardid="'psychology'" cardtitle="common_psychology"
         dimension="normal"
@@ -59,7 +59,7 @@
         hastext="true"
         noimageicon="cogs"
         selectfunction="$ctrl.showInfoWithQuestion(id)"
-        text="jsp.character.thumbnail.psychology.description"
+        text="{{$ctrl.psychology_text}}"
         status="$ctrl.maincharacter.psychology.status"></card>
       <card cardid="'ideas'" cardtitle="common_ideas"
         dimension="normal"
@@ -68,7 +68,7 @@
         hastext="true"
         noimageicon="flag-o"
         selectfunction="$ctrl.showInfoWithQuestion(id)"
-        text="jsp.character.thumbnail.ideas.description"
+        text="{{$ctrl.ideas_text}}"
         status="$ctrl.maincharacter.ideas.status"></card>
       <card cardid="'sociology'" cardtitle="common_sociology"
         dimension="normal"
@@ -77,7 +77,7 @@
         hastext="true"
         noimageicon="users"
         selectfunction="$ctrl.showInfoWithQuestion(id)"
-        text="jsp.character.thumbnail.sociology.description"
+        text="{{$ctrl.sociology_text}}"
         status="$ctrl.maincharacter.sociology.status"></card>
       <card cardid="'lifebeforestorybeginning'" cardtitle="jsp.character.thumbnail.lifebeforestorybeginning.title"
         dimension="normal"
@@ -86,7 +86,7 @@
         family="maincharactersdetails"
         hastext="true"
         selectfunction="$ctrl.showInfoWithoutQuestion(id)"
-        text="jsp.character.thumbnail.lifebeforestorybeginning.description"
+        text="{{$ctrl.lifebeforestorybeginning_text}}"
         status="$ctrl.maincharacter.lifebeforestorybeginning.status"></card>
       <card cardid="'custom'" cardtitle="common_custom"
         dimension="normal"
@@ -118,7 +118,7 @@
       hastext="true"
       noimageicon="fire"
       selectfunction="$ctrl.showInfoWithoutQuestion(id)"
-      text="jsp.character.thumbnail.conflict.description"
+      text="{{$ctrl.conflict_text}}"
       status="$ctrl.maincharacter.conflict.status"></card>
     <card cardid="'evolutionduringthestory'" cardtitle="jsp.character.thumbnail.evolutionduringthestory.title"
       dimension="normal"
@@ -127,7 +127,7 @@
       hastext="true"
       noimageicon="refresh"
       selectfunction="$ctrl.showInfoWithoutQuestion(id)"
-      text="jsp.character.thumbnail.evolutionduringthestory.description"
+      text="{{$ctrl.evolutionduringthestory_text}}"
       status="$ctrl.maincharacter.evolutionduringthestory.status"></card>
     <card cardid="'notes'" cardtitle="common_notes_title"
       dimension="normal"
@@ -136,7 +136,7 @@
       hastext="true"
       noimageicon="thumb-tack"
       selectfunction="$ctrl.showInfoWithoutQuestion(id)"
-      text="common_notes_description"
+      text="{{$ctrl.notes_text}}"
       supportersonly="true"></card>
   </div>
 </div>

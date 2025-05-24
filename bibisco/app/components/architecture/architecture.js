@@ -23,7 +23,7 @@ angular.
   });
 
 function ArchitectureController($injector, $location, $rootScope, $scope,
-  ArchitectureService, StrandService, SupporterEditionChecker) {
+  ArchitectureService, StrandService, SupporterEditionChecker, UtilService) {
 
   let self = this;
   let GroupService = null;
@@ -47,46 +47,50 @@ function ArchitectureController($injector, $location, $rootScope, $scope,
 
     /* Premise */
     let premise = ArchitectureService.getPremise();
+    let premise_text = UtilService.getContentText(premise.text, 'jsp.architecture.thumbnail.premise.description');
     items.push({
       id: 'premise',
       noimageicon: 'compass',
       position: 1,
       status: premise.status,
-      text: 'jsp.architecture.thumbnail.premise.description',
+      text: premise_text,
       title: 'jsp.architecture.thumbnail.premise.title'
     });
 
     /* Fabula */
     let fabula = ArchitectureService.getFabula();
+    let fabula_text = UtilService.getContentText(fabula.text, 'jsp.architecture.thumbnail.fabula.description');
     items.push({
       id: 'fabula',
       noimageicon: 'clock-o',
       position: 2,
       status: fabula.status,
-      text: 'jsp.architecture.thumbnail.fabula.description',
+      text: fabula_text,
       title: 'jsp.architecture.thumbnail.fabula.title'
     });
 
     /* Setting */
     let setting = ArchitectureService.getSetting();
+    let setting_text = UtilService.getContentText(setting.text, 'jsp.architecture.thumbnail.setting.description');
     items.push({
       id: 'setting',
       noimageicon: 'globe',
       position: 3,
       status: setting.status,
-      text: 'jsp.architecture.thumbnail.setting.description',
+      text: setting_text,
       title: 'jsp.architecture.thumbnail.setting.title'
     });
 
     /* Global notes */
     let globalnotes = ArchitectureService.getGlobalNotes();
+    let globalnotes_text = UtilService.getContentText(globalnotes.text, 'common_notes_description');
     items.push({
       id: 'globalnotes',
       noimageicon: 'thumb-tack',
       position: 4,
       supportersonly: true,
       status: globalnotes.status,
-      text: 'common_notes_description',
+      text: globalnotes_text,
       title: 'common_notes_title'
     });
 
@@ -122,7 +126,8 @@ function ArchitectureController($injector, $location, $rootScope, $scope,
           position: strands[i].position,
           status: strands[i].status,
           tags: tags,
-          title: strands[i].name
+          text: UtilService.getContentText(strands[i].description, ''),
+          title: strands[i].name,
         });
       }
     }

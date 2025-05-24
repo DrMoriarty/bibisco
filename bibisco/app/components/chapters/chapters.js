@@ -23,7 +23,7 @@ angular.
   });
 
 function ChaptersController($location, $rootScope, $scope, hotkeys, ChapterService, 
-  PopupBoxesService, ProjectService, SupporterEditionChecker) {
+                            PopupBoxesService, ProjectService, SupporterEditionChecker, UtilService) {
   var self = this;
 
   self.$onInit = function() {
@@ -174,7 +174,7 @@ function ChaptersController($location, $rootScope, $scope, hotkeys, ChapterServi
       return null;
     }
 
-    let title = ChapterService.getChapterPositionDescription(chapter.position);
+    let title = UtilService.string.truncate(chapter.title, 25); //ChapterService.getChapterPositionDescription(chapter.position);
     let family;
     switch(type) {
     case 'prologue':
@@ -204,7 +204,7 @@ function ChaptersController($location, $rootScope, $scope, hotkeys, ChapterServi
       position: chapter.position,
       status: chapter.status,
       tags: tags,
-      text: chapter.title,
+      text: UtilService.getContentText(chapter.reason.text, ''),
       title: title,
       words: chapter.words
     };

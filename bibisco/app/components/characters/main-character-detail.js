@@ -70,6 +70,17 @@ function MainCharacterDetailController($injector, $location, $rootScope, $routeP
       }
     });
 
+    self.personaldata_text = UtilService.getContentText(self.maincharacter.personaldata.freetext, "jsp.character.thumbnail.personaldata.description");
+    self.physionomy_text = UtilService.getContentText(self.maincharacter.physionomy.freetext, "jsp.character.thumbnail.physionomy.description");
+    self.behaviors_text = UtilService.getContentText(self.maincharacter.behaviors.freetext, "jsp.character.thumbnail.behaviors.description");
+    self.psychology_text = UtilService.getContentText(self.maincharacter.psychology.freetext, "jsp.character.thumbnail.psychology.description");
+    self.ideas_text = UtilService.getContentText(self.maincharacter.ideas.freetext, "jsp.character.thumbnail.ideas.description");
+    self.sociology_text = UtilService.getContentText(self.maincharacter.sociology.freetext, "jsp.character.thumbnail.sociology.description");
+    self.lifebeforestorybeginning_text = UtilService.getContentText(self.maincharacter.lifebeforestorybeginning.freetext, "jsp.character.thumbnail.lifebeforestorybeginning.description");
+    self.conflict_text = UtilService.getContentText(self.maincharacter.conflict.text, "jsp.character.thumbnail.conflict.description");
+    self.evolutionduringthestory_text = UtilService.getContentText(self.maincharacter.evolutionduringthestory.text, "jsp.character.thumbnail.evolutionduringthestory.description");
+    self.notes_text = UtilService.getContentText(self.maincharacter.notes.text, "common_notes_description");
+
     // tags
     self.tags = [];
     if (SupporterEditionChecker.isSupporterOrTrial()) {

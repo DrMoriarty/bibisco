@@ -23,7 +23,7 @@ angular.
   });
 
 function CharactersController($injector, $location, $rootScope, $scope, 
-  MainCharacterService, SecondaryCharacterService, SupporterEditionChecker) {
+  MainCharacterService, SecondaryCharacterService, SupporterEditionChecker, UtilService) {
 
   let self = this;
   let GroupService = null;
@@ -92,6 +92,10 @@ function CharactersController($injector, $location, $rootScope, $scope,
         }
         self.showGroupFilter = true;
       }
+      let description = characters[i].description;
+      if(type === 'maincharacter') {
+        description = characters[i].personaldata.freetext;
+      }
       if (!$rootScope.groupFilter || $rootScope.groupFilter.key === 'all' || showOnActiveFilter) {
         items.push({
           id: characters[i].$loki,
@@ -100,7 +104,8 @@ function CharactersController($injector, $location, $rootScope, $scope,
           position: characters[i].position,
           status: characters[i].status,
           tags: tags,
-          title: characters[i].name
+          title: characters[i].name,
+          text: UtilService.getContentText(description, '')
         });
       }
     }

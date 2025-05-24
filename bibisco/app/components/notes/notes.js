@@ -23,7 +23,7 @@ angular.
   });
 
 function NotesController($location, $rootScope, $routeParams, $scope,
-  CardUtilService, NoteService, SupporterEditionChecker) {
+                         CardUtilService, NoteService, SupporterEditionChecker, UtilService) {
 
   var self = this;
 
@@ -61,7 +61,8 @@ function NotesController($location, $rootScope, $routeParams, $scope,
           noimageicon: 'thumb-tack',
           position: notes[i].position,
           status: notes[i].status,
-          title: notes[i].name
+          title: notes[i].name,
+          text: UtilService.getContentText(notes[i].description, '')
         });
       }
     }

@@ -20,7 +20,7 @@ angular.
   });
 
 function ChapterDetailController($location, $rootScope, $routeParams, $scope, $window,
-  ChapterService, hotkeys, PopupBoxesService, SupporterEditionChecker) {
+                                 ChapterService, hotkeys, PopupBoxesService, SupporterEditionChecker, UtilService) {
 
   let self = this;
 
@@ -37,7 +37,10 @@ function ChapterDetailController($location, $rootScope, $routeParams, $scope, $w
     }
     
     $rootScope.$emit('SHOW_ELEMENT_DETAIL');
-    self.title = ChapterService.getChapterPositionDescription(self.chapter.position) + ' ' + self.chapter.title;        
+    self.title = ChapterService.getChapterPositionDescription(self.chapter.position) + ' ' + self.chapter.title;
+
+    self.chapter_reason_text = UtilService.getContentText(self.chapter.reason.text, "jsp.chapter.thumbnail.reason.description");
+    self.chapter_notes_text = UtilService.getContentText(self.chapter.notes.text, "common_notes_description");
 
     // breadcrumbs
     self.breadcrumbitems.push({
@@ -114,8 +117,8 @@ function ChapterDetailController($location, $rootScope, $routeParams, $scope, $w
           position: scenes[i].position,
           status: scenes[i].status,
           tags: tags,
-          text: scenes[i].title,
-          title: '#' + scenes[i].position,
+          text: UtilService.getContentText(scenes[i].revisions[scenes[i].revision].text, ''),
+          title: UtilService.string.truncate(scenes[i].title, 25),
           words: scenes[i].words
         });
       }

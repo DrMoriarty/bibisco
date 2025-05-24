@@ -1,4 +1,5 @@
 /.DS_Store
+dist
 bibisco/bin/ApplicationResources.properties
 bibisco/bin/ApplicationResources_cs.properties
 bibisco/bin/ApplicationResources_de.properties

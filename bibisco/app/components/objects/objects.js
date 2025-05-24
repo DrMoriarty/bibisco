@@ -22,7 +22,7 @@ angular.
     }
   });
 
-function ObjectsController($location, $rootScope, $scope, GroupService, ObjectService, SupporterEditionChecker) {
+function ObjectsController($location, $rootScope, $scope, GroupService, ObjectService, SupporterEditionChecker, UtilService) {
 
   let self = this;
 
@@ -74,7 +74,8 @@ function ObjectsController($location, $rootScope, $scope, GroupService, ObjectSe
             position: objects[i].position,
             status: objects[i].status,
             tags: tags,
-            title: objects[i].name
+            title: objects[i].name,
+            text: UtilService.getContentText(objects[i].description, '')
           });
         }
       }

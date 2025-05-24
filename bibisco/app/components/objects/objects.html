@@ -1,6 +1,6 @@
 <cardgrid
   changegroupfilterfunction="$ctrl.refreshCardGridItems()"  
-  carddimension="small"
+  carddimension="normal"
   dndenabled="true"
   dropfunction="$ctrl.move(draggedObjectId, destinationObjectId)"
   emptylisttext="object_emptylist"
@@ -9,6 +9,7 @@
   emptylistbuttontooltip="{{'object_firstcreate_tooltip'+$root.os}}"
   emptyselectedgrouptext="no_objects_in_selected_group"
   family="objects"
+  hastext="true"
   items="$ctrl.cardgriditems"
   pageheaderbuttonhotkey="$ctrl.hotkeys"
   pageheaderbuttonlabel="object_create"

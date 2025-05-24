@@ -18,5 +18,14 @@ angular.module('bibiscoApp').service('UtilService', function() {
 
   let mout = require('mout');
 
+  mout.getContentText = function(text, placeholder) {
+    let stripped_text = mout.string.stripHtmlTags(mout.string.truncate(text, 200));
+    if(stripped_text.length > 1) {
+      return stripped_text;
+    } else {
+      return placeholder;
+    }
+  }
+
   return mout;
 });
